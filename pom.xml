@@ -17,7 +17,7 @@
 
     <modules>
         <module>licensing-service</module>
-        <module>servercfn</module>
+        <module>server_config</module>
     </modules>
 
 

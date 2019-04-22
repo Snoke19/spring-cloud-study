@@ -5,14 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "licenses")
 public class License {
 
-  private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "licenseId", nullable = false)
+  private String licenseId;
+
+  @Column(name = "organizationId", nullable = false)
   private String organizationId;
+
+  @Column(name = "productName", nullable = false)
   private String productName;
-  private String licenseType;
 }
