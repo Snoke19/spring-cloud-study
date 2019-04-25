@@ -1,6 +1,7 @@
 server:
   servlet:
-    context-path: /licensing-service
+    context-path: /organization-service
+  port: 8081
 
 eureka:
   instance:
@@ -15,7 +16,7 @@ eureka:
 
 spring:
   application:
-    name: licensingservice
+    name: organizationservice
   profiles:
     active:
       default

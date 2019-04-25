@@ -16,8 +16,10 @@
 
 
     <modules>
+        <module>organization-service</module>
         <module>licensing-service</module>
         <module>server_config</module>
+        <module>eureka-service</module>
     </modules>
 
 
