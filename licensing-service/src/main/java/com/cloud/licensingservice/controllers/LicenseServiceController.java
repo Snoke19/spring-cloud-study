@@ -1,6 +1,5 @@
 package com.cloud.licensingservice.controllers;
 
-import com.cloud.licensingservice.models.License;
 import com.cloud.licensingservice.models.LicenseOrgDTO;
 import com.cloud.licensingservice.services.LicenseService;
 import org.springframework.web.bind.annotation.PathVariable;
