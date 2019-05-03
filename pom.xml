@@ -20,6 +20,7 @@
         <module>licensing-service</module>
         <module>server_config</module>
         <module>eureka-service</module>
+        <module>zuul-service</module>
     </modules>
 
 
