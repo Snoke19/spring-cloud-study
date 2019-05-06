@@ -1,7 +1,3 @@
-server:
-  servlet:
-    context-path: /licensing-service
-
 eureka:
   instance:
     prefer-ip-address: true

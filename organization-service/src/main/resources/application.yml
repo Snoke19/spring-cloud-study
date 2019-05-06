@@ -1,6 +1,4 @@
 server:
-  servlet:
-    context-path: /organization-service
   port: 8081
 
 eureka:
