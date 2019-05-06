@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.Random;
 
 @Service
 @DefaultProperties(commandProperties =
@@ -32,8 +31,6 @@ public class LicenseServiceImpl implements LicenseService {
   @Transactional
   @HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
   public LicenseOrgDTO getLicense(int organizationId, int licenseId) {
-
-    randomlyRunLong();
 
     OrganizationDTO organizationDTO = restTemplate.getForEntity("http://organizationservice/organization-service/organization/" + organizationId, OrganizationDTO.class).getBody();
 
@@ -54,19 +51,5 @@ public class LicenseServiceImpl implements LicenseService {
     return LicenseOrgDTO.builder()
             .license(LicenseDTO.builder().licenseId(license.getLicenseId()).productName(license.getProductName()).date(license.getDate()).build())
             .organization(OrganizationDTO.builder().name("Sorry no licensing information currently available").build()).build();
-  }
-
-  private void randomlyRunLong() {
-    Random rand = new Random();
-    int randomNum = rand.nextInt((3 - 1) + 1) + 1;
-    if (randomNum==3) sleep();
-  }
-
-  private void sleep(){
-    try {
-      Thread.sleep(13000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
   }
 }
