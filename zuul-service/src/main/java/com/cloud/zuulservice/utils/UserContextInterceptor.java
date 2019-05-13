@@ -1,4 +1,4 @@
-package com.cloud.licensingservice.utils;
+package com.cloud.zuulservice.utils;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;

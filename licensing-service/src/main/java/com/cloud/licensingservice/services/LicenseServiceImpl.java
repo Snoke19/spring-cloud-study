@@ -32,7 +32,7 @@ public class LicenseServiceImpl implements LicenseService {
   @HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
   public LicenseOrgDTO getLicense(int organizationId, int licenseId) {
 
-    OrganizationDTO organizationDTO = restTemplate.getForEntity("http://organizationservice/organization-service/organization/" + organizationId, OrganizationDTO.class).getBody();
+    OrganizationDTO organizationDTO = restTemplate.getForEntity("http://organizationservice/organization/" + organizationId, OrganizationDTO.class).getBody();
 
     License license = licenseRepository.findById(licenseId).orElse(License.builder().licenseId(1).productName("test").date(LocalDateTime.now()).build());
 

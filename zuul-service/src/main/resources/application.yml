@@ -1,6 +1,16 @@
 server:
   port: 5555
 
+spring:
+  application:
+    name: zuulservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      uri: http://localhost:8888
+
 eureka:
   instance:
     preferIpAddress: true
@@ -18,3 +28,11 @@ management:
 
 zuul:
   prefix: /api
+
+hystrix:
+  command:
+    licensingservice:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 import java.util.List;
 
+
 @Configuration
 public class RestTemplateConfig {
 
@@ -19,17 +20,15 @@ public class RestTemplateConfig {
     RestTemplate template = new RestTemplate();
     List interceptors = template.getInterceptors();
 
-    if (interceptors == null) {
+    if (interceptors == null){
 
       template.setInterceptors(Collections.singletonList(new UserContextInterceptor()));
 
-    } else{
+    } else {
 
       interceptors.add(new UserContextInterceptor());
-
       template.setInterceptors(interceptors);
     }
-
     return template;
   }
 }

@@ -1,7 +1,8 @@
-package com.cloud.zuulservice;
+package com.cloud.zuulservice.filters;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -35,7 +36,7 @@ public class ResponseFilter extends ZuulFilter {
   }
 
   @Override
-  public Object run() {
+  public Object run() throws ZuulException {
 
     RequestContext ctx = RequestContext.getCurrentContext();
     logger.debug("Adding the correlation id to the outbound headers. {}", filterUtils.getCorrelationId());
@@ -43,7 +44,6 @@ public class ResponseFilter extends ZuulFilter {
     ctx.getResponse().addHeader(FilterUtils.CORRELATION_ID, filterUtils.getCorrelationId());
 
     logger.debug("Completing outgoing request for {}.", ctx.getRequest().getRequestURI());
-
     return null;
   }
 }

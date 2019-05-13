@@ -1,4 +1,4 @@
-package com.cloud.licensingservice.utils;
+package com.cloud.zuulservice.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
