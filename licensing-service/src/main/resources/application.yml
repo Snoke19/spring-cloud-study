@@ -22,3 +22,9 @@ spring:
 logging:
   level:
     com.cloud.licensingservice: debug
+
+
+security:
+  oauth2:
+    resource:
+      user-info-: http://localhost:8901/auth/user
